@@ -7,6 +7,7 @@ The authbind source was take from the location: http://ftp.debian.org/debian/poo
 
 ## TO BUILD
 ```
+cd authbind
 rpmbuild -v -bb --clean SPECS/authbind.spec
 ```
 
