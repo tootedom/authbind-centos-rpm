@@ -29,7 +29,7 @@ rpmbuild -v -bb --clean SPECS/authbind.spec
 ### Running tomcat on port 80
 (listens on all interfaces)
 ```
-echo "::/0,80" > /etc/authbind/`id -u tomcat`
+echo "::/0,80" > /etc/authbind/byuid/`id -u tomcat`
 ```
 
 Modify you tomcat startup process to use authbind, for example:
