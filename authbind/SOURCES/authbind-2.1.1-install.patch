@@ -7,13 +7,13 @@
 -INSTALL_FILE	?= install -o root -g root -m 644 
 -INSTALL_PROGRAM ?= install -o root -g root -m 755 -s
 -INSTALL_DIR	?= install -o root -g root -m 755 -d
-+INSTALL_FILE	?= install -m 644 
-+INSTALL_PROGRAM ?= install -m 755 -s
-+INSTALL_DIR	?= install -m 755 -d
++INSTALL_FILE	?= install -o root -g root -m 644 
++INSTALL_PROGRAM ?= install -o root -g root -m 755 -s
++INSTALL_DIR	?= install -o root -g root -m 755 -d
  STRIP		?= strip
  
  OPTIMISE=	-O2
-@@ -59,19 +59,22 @@
+@@ -59,19 +59,23 @@
  all:			$(TARGETS)
  
  install:		$(TARGETS)
@@ -35,7 +35,8 @@
 +		ln -sf $(LIBTARGET) $(DESTDIR)$(lib_dir)/$(LIBCANON)
 +		$(INSTALL_PROGRAM) $(HELPER) $(DESTDIR)$(libexec_dir)/.
 +		chmod u+s $(DESTDIR)$(libexec_dir)/$(HELPER)
-+		$(INSTALL_DIR) $(DESTDIR)$(etc_dir) \
++		$(INSTALL_DIR) $(DESTDIR)$(etc_dir) 
++		$(INSTALL_DIR) $(DESTDIR)$(etc_dir)/byport
 +		$(INSTALL_DIR) $(DESTDIR)$(etc_dir)/byaddr
 +		$(INSTALL_DIR) $(DESTDIR)$(etc_dir)/byuid
  

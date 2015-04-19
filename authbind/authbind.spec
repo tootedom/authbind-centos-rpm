@@ -11,7 +11,7 @@ Version: 		%{version}
 Release:		%{release}
 # Built up from git repo
 Source: 		%{name}-%{version}.tar.gz
-PAtch:			authbind-2.1.1-install.patch
+Patch:			authbind-2.1.1-install.patch
 Group: 			Development/Tools
 
 %description
@@ -27,6 +27,8 @@ sed -i.prefix 's|/usr/local|%{_prefix}|g' Makefile
 sed -i.libdir 's|$(prefix)/lib/|$(prefix)/%{_lib}/|g' Makefile 
 # Set etc_dir to use rpmmacro, not hardcoded /etc/authbind
 sed -i.etcdirr 's|/etc/authbind/|%{_sysconfdir}/authbind|g' Makefile 
+cat Makefile
+
 
 %build
 make
